@@ -1,5 +1,6 @@
 # **Crawler**
 Crawler for algospot using python and beautifulsoup
+Crawling results are saved as CSV file
 ## **1. Setting (Ubuntu 22.04)**
 ---
 ### 1.1. Setting Up Python 3
