@@ -1,3 +1,5 @@
+#!/bin/bash
+
 SPARK_USER=spark
 IS_SPARK_EXIST=$(grep spark /etc/passwd)
 
