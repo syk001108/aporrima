@@ -27,3 +27,5 @@ sleep 1
 
 echo "Start install Python3"
 ./aporrima/spark/install-python.sh
+
+source ~/.bashrc
