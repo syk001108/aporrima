@@ -23,6 +23,3 @@ EOF
 cat <<EOF | sudo tee /etc/hosts
 $MASTER_IP      $MASTER_HOST
 EOF
-
-
-
