@@ -12,4 +12,4 @@ export JAVA_HOME=${JAVA_PATH%"/bin/java"}
 export PATH=\$JAVA_HOME/bin:\$PATH
 EOF
 
-source .bashrc
+source ~/.bashrc

@@ -11,10 +11,9 @@ echo "This script will set up /etc/hosts file"
 read -r -p "Please input the number of walker nodes: " NUM
 for ((var=0 ; var < $NUM ; var++));
 do
-    NUM=$(($NUM+1))
     read -r -p "Please input IP: " IP
-    HOST="worker$NUM"
-    /aporrima/spark/add-host.sh $NUM $IP
+    HOST="worker($var+1)"
+    ./aporrima/spark/add-host.sh $HOST $IP
 done 
 
 sudo mkdir /home/spark/logs
@@ -38,7 +37,7 @@ cp workers.template workers
 for i in $(sed -n '/worker/p' /etc/hosts)
 do
 	if [[ "${i}" == *"worker"* ]];then
-		echo $i > $HADOOP_HOME/etc/hadoop/workers
+		echo $i > $SPARK_HOME/conf/workers
 	fi
 done
 

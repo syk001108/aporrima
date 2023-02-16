@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sudo chmod -R 777 ./aporrima
 sudo apt-get update
 sudo apt install openssh-server openssh-client -y
 sudo apt install net-tools
@@ -8,6 +7,10 @@ sudo apt install net-tools
 sudo sed -i "/PasswordAuthentication/ c\PasswordAuthentication yes" /etc/ssh/sshd_config
 sudo sed -i "/PermitRootLogin/ c\PermitRootLogin yes" /etc/ssh/sshd_config
 sudo systemctl restart sshd
+
+cat <<EOF > ~/.bash_profile
+source ~/.bashrc
+EOF
 
 echo "DISCLAIMER: This is an automated script for installing Spark but you should feel responsible for what you're doing!"
 echo "This script will install Spark to your home directory, modify your PATH, and add environment variables to your SHELL config file"
@@ -43,12 +46,14 @@ echo "Start install JAVA"
 sleep 1
 
 echo "Start install Python3"
-./aporrima/spark/install-java.sh
+./aporrima/spark/install-python.sh
 
 sleep 1
 
 echo "Start install Spark"
 ./aporrima/spark/install-spark.sh
+
+
 
 echo "Please select a number that corresponds to the desired installation mode"
 read -r -p "(1 : Local Standalone / 2 : Spark on YARN / 3 : Standalone Cluster) : " response
