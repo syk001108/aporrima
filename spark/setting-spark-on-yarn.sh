@@ -6,6 +6,8 @@ MASTER_CPU=$(grep 'cpu cores' /proc/cpuinfo | tail -1)
 sudo mkdir /home/spark/logs
 cd /$SPARK_HOME/conf
 
+hdfs dfs -mkdir -p /user/spark/logs
+
 cp spark-defaults.conf.template spark-defaults.conf
 cat <<EOF | sudo tee ./spark-defaults.conf
 spark.master                                    yarn
@@ -13,7 +15,7 @@ spark.serializer                                org.apache.spark.serializer.Kryo
 spark.driver.cores                              $MASTER_CPU
 spark.executor.cores                            $MASTER_CPU
 spark.eventLog.enabled                          true
-spark.eventLog.dir                              /home/spark/logs
+spark.eventLog.dir                              hdfs:///user/spark/logs
 spark.history.provider                          org.apache.spark.deploy.history.FsHistoryprovider
 spark.yarn.historyServer.address                $MASTER_IP:18080
 spark.yarn.appMasterEnv.PYSPARK_PYTHON          /usr/bin/python3
@@ -30,6 +32,3 @@ export PYSPARK_PYTHON=/usr/bin/python3
 export PYSPARK_DRIVER_PYTHON=/usr/bin/python3
 EOF
 
-cat <<EOF | sudo tee /etc/hosts
-$MASTER_IP      $MASTER_HOST
-EOF
