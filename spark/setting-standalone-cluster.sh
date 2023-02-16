@@ -12,9 +12,13 @@ read -r -p "Please input the number of walker nodes: " NUM
 for ((var=0 ; var < $NUM ; var++));
 do
     read -r -p "Please input IP: " IP
-    HOST="worker($var+1)"
+	WORKER_NUMBER=$(($var+1))
+    HOST="worker$WORKER_NUMBER"
     ./aporrima/spark/add-host.sh $HOST $IP
 done 
+
+cp ./aporrima/spark/connect-worker.sh /home/spark/
+su - spark -c "./connect-worker.sh"
 
 sudo mkdir /home/spark/logs
 cd /$SPARK_HOME/conf
