@@ -23,4 +23,4 @@ echo "Start install JAVA"
 sleep 1
 
 echo "Start install Python3"
-./aporrima/spark/install-java.sh
+./aporrima/spark/install-python.sh
