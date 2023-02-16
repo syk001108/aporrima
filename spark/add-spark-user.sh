@@ -15,9 +15,10 @@ if [[ -n $IS_SPARK_EXIST ]]; then
     fi
 fi
     
-sudo useradd $SPARK_USER
-sudo passwd $SPARK_USER
+sudo useradd -m $SPARK_USER
+echo 'spark:spark' | sudo chpasswd
 sudo mkdir /home/$SPARK_USER
 sudo chown $SPARK_USER:$SPARK_USER /home/$SPARK_USER
 sudo chsh -s /bin/bash spark
 echo "$SPARK_USER user added"
+su spark
