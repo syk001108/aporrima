@@ -6,14 +6,14 @@ MASTER_CPU=$(grep 'cpu cores' /proc/cpuinfo | tail -1)
 sudo mkdir /home/spark/logs
 cd /$SPARK_HOME/conf
 
-hdfs dfs -mkdir -p /user/spark/logs
+su - hadoop -c "hdfs dfs -mkdir -p /user/spark/logs"
 
 cp spark-defaults.conf.template spark-defaults.conf
 cat <<EOF | sudo tee ./spark-defaults.conf
 spark.master                                    yarn
 spark.serializer                                org.apache.spark.serializer.KryoSerializer
-spark.driver.cores                              $MASTER_CPU
-spark.executor.cores                            $MASTER_CPU
+spark.driver.cores                              1
+spark.executor.cores                            1
 spark.eventLog.enabled                          true
 spark.eventLog.dir                              hdfs:///user/spark/logs
 spark.history.provider                          org.apache.spark.deploy.history.FsHistoryprovider
