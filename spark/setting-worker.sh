@@ -48,4 +48,4 @@ echo "Start install Python3"
 ./aporrima/spark/install-python.sh
 
 echo "Set up ubuntu password"
-echo 'ubuntu' | sudo passwd --stdin ubuntu
+echo 'ubuntu:ubuntu' | sudo chpasswd
