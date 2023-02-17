@@ -20,7 +20,7 @@ lists=("core-site" "hdfs-site" "mapred-site" "yarn-site")
 for i in "${lists[@]}"
 do
 	sed -i "/configuration>/d" $HADOOP_HOME/etc/hadoop/${i}.xml
-	cat ${i}.txt >> $HADOOP_HOME/etc/hadoop/${i}.xml	
+	cat ./aporrima/hadoop/${i}.txt >> $HADOOP_HOME/etc/hadoop/${i}.xml	
 done
 sed -i "s/127.0.0.1/$(hostname -I | sed -e 's/  *$//')/g" $HADOOP_HOME/etc/hadoop/core-site.xml
 sed -i "s/0.0.0.0/$(hostname -I | sed -e 's/  *$//')/g" $HADOOP_HOME/etc/hadoop/yarn-site.xml
