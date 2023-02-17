@@ -37,5 +37,5 @@ done
 
 hdfs namenode -format
 
-/home/hadoop/hadoop-3.3.4/sbin/start-dfs.sh
-/home/hadoop/hadoop-3.3.4/sbin/start-yarn.sh
+$HADOOP_HOME/sbin/start-dfs.sh
+$HADOOP_HOME/sbin/start-yarn.sh
