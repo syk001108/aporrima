@@ -20,5 +20,5 @@ echo 'spark:spark' | sudo chpasswd
 sudo mkdir /home/$SPARK_USER
 sudo chown $SPARK_USER:$SPARK_USER /home/$SPARK_USER
 sudo chsh -s /bin/bash spark
+sudo sed -i'' -r -e "/# User privilege specification/a\spark  ALL=(ALL) NOPASSWD:ALL" /etc/sudoers
 echo "$SPARK_USER user added"
-su spark

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SPARK_VERSION=spark-3.3.1
-SPARK_TGZ=spark-3.3.1-bin-hadoop3.tgz
+SPARK_VERSION=spark-3.3.2
+SPARK_TGZ=spark-3.3.2-bin-hadoop3.tgz
 SPARK_HOME=/home/spark
 
 if [[ -d $SPARK_HOME/${SPARK_TGZ%".tgz"} ]]; then
