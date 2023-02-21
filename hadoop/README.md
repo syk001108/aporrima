@@ -25,7 +25,9 @@
 🔹Input
 
 ```
-./install.sh
+sudo apt-get install git
+git clone https://github.com/psy337337/aporrima.git
+./aporrima/hadoop/install.sh
 ```
 
 ## Step 2 - **Register domain to host**
@@ -54,13 +56,13 @@ For smooth connection of NameNode and DataNode.
 🔹Input
 
 ```
-./hostset.sh (NameNode's ip address) (DataNode's ip address) (DataNode's ip address)...
+./aporrima/hadoop/hostset.sh (NameNode's ip address) (DataNode's ip address) (DataNode's ip address)...
 ```
 
 🔹Example
 
 ```
-./hostset.sh 10.0.20.157 10.0.20.181 10.0.20.182 10.0.20.183 
+./aporrima/hadoop/hostset.sh 10.0.20.157 10.0.20.181 10.0.20.182 10.0.20.183 
 ```
 
 ## Step 3 - Create a Hadoop account
@@ -90,7 +92,7 @@ Create Hadoop-only user accounts to distinguish Hadoop processes from other serv
 🔹Input
 
 ```
-./makeUser.sh
+./aporrima/hadoop/makeUser.sh
 cd 
 ```
 
@@ -119,13 +121,15 @@ Access without SSH password with public key authentication
 🔹Input
 
 ```
-./connect.sh
+git clone https://github.com/psy337337/aporrima.git
+./aporrima/hadoop/connect.sh
 ```
 
 🔹Example (NameNode)
 
 ```
-./coonect.sh
+git clone https://github.com/psy337337/aporrima.git
+./aporrima/hadoop/connect.sh
 ssh hadoop@hdw1
 ssh hadoop@hdw2
 ssh hadoop@hdw3
@@ -158,13 +162,14 @@ ssh hadoop@hdw3
 🔹Input
 
 ```
-./installHadoop.sh
+./aporrima/hadoop/installHadoop.sh
+. ~/.bashrc
 ```
 
 🔹Example
 
 ```
-./installHadoop.sh
+./aporrima/hadoop/installHadoop.sh
 . ~/.bashrc
 ```
 
@@ -217,13 +222,13 @@ Setting to run Hadoop and running Hadoop
 🔹Input
 
 ```
-./setHadoop.sh
+./aporrima/hadoop/setHadoop.sh
 ```
 
 🔹Example
 
 ```
-./setHadoop.sh
+./aporrima/hadoop/setHadoop.sh
 jps
 ```
 
