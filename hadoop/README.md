@@ -45,7 +45,7 @@ git clone https://github.com/psy337337/aporrima.git
 
 You should input `enter` 3 times, input `yes`, and input passwd `hadoop`
 
-If you have tested the ssh connection (ex. `ssh hadoop@hdn`), input `exit` and return to the existing window. And repeat**.**
+If you have tested the ssh connection (ex. `ssh hadoop@hdn`), input `exit` and return to the existing window. And repeat.
 
 🟪**NameNode**
 
