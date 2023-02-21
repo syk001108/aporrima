@@ -29,6 +29,7 @@ then
     exit 1
 fi
 ./aporrima/spark/add-spark-user.sh
+echo -n "spark" | su - spark -c "git clone https://github.com/boanlab/aporrima.git"
 
 sleep 1
 
@@ -41,17 +42,17 @@ then
 fi
 
 echo "Start install JAVA"
-./aporrima/spark/install-java.sh
+echo -n "spark" | su - spark -c "./aporrima/spark/install-java.sh"
 
 sleep 1
 
 echo "Start install Python3"
-./aporrima/spark/install-python.sh
+echo -n "spark" | su - spark -c "./aporrima/spark/install-python.sh"
 
 sleep 1
 
 echo "Start install Spark"
-./aporrima/spark/install-spark.sh
+echo -n "spark" | su - spark -c "./aporrima/spark/install-spark.sh"
 
 
 
