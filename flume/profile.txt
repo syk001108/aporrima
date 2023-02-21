@@ -1,0 +1,9 @@
+export HADOOP_HOME=/home/hadoop/hadoop-3.3.4
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+
+export FLUME_HOME=/usr/local/flume
+export PATH=$PATH:$FLUME_HOME/bin
+export CLASSPATH=$CLASSPATH:$FLUME_HOME/lib/*.jar
