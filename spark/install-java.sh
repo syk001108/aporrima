@@ -3,7 +3,7 @@
 JAVA_PATH=$(update-alternatives --list java)
 
 if [[ -z $JAVA_PATH ]]; then
-    sudo apt-get install openjdk-8-jdk-headless
+    sudo apt-get install openjdk-8-jdk-headless -y
     JAVA_PATH=$(update-alternatives --list java)
 fi
 
