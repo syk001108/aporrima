@@ -4,10 +4,9 @@ MASTER_IP=$(/sbin/ifconfig | grep '\<inet\>' | sed -n '1p' | tr -s ' ' | cut -d 
 MASTER_HOST=$(hostname)
 
 sudo mkdir /home/spark/logs
-sudo cd ./spark
-pwd
 
-cp spark-defaults.conf.template spark-defaults.conf
+
+cp $SPARK_HOME/spark-defaults.conf.template $SPARK_HOME/spark-defaults.conf
 cat <<EOF | sudo tee ./spark-defaults.conf
 spark.master                     spark://$MASTER_IP:7077
 spark.serializer                 org.apache.spark.serializer.KryoSerializer
