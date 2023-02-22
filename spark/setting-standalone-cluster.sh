@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MASTER_IP=$(/sbin/ifconfig | grep '\<inet\>' | sed -n '1p' | tr -s ' ' | cut -d ' ' -f3 | cut -d ':' -f2)
-MASTER_HOST=$(hostname)
+MASTER_HOST=spark-master
 
 cat <<EOF | sudo tee /etc/hosts
 $MASTER_IP      $MASTER_HOST
@@ -13,7 +13,7 @@ for ((var=0 ; var < $NUM ; var++));
 do
     read -r -p "Please input IP: " IP
 	WORKER_NUMBER=$(($var+1))
-    HOST="worker$WORKER_NUMBER"
+    HOST="spark-worker$WORKER_NUMBER"
     ./aporrima/spark/add-host.sh $HOST $IP
 done 
 
@@ -38,14 +38,14 @@ export SPARK_MASTER=$MASTER_HOST
 EOF
 
 cp workers.template workers
-for i in $(sed -n '/worker/p' /etc/hosts)
+for i in $(sed -n '/spark/p' /etc/hosts)
 do
 	if [[ "${i}" == *"worker"* ]];then
 		echo $i > $SPARK_HOME/conf/workers
 	fi
 done
 
-LINE_CNT=$(sed -n '/worker/p' /etc/hosts | wc -l)
+LINE_CNT=$(sed -n '/spark/p' /etc/hosts | wc -l)
 for ((i=1; i<$LINE_CNT; i++))
 do
 	scp -r /home/spark/* spark@$i:/home/spark/
