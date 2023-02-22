@@ -4,7 +4,8 @@ MASTER_IP=$(/sbin/ifconfig | grep '\<inet\>' | sed -n '1p' | tr -s ' ' | cut -d 
 MASTER_HOST=$(hostname)
 
 sudo mkdir /home/spark/logs
-cd ./$SPARK_HOME/conf
+cd $SPARK_HOME
+pwd
 
 cp spark-defaults.conf.template spark-defaults.conf
 cat <<EOF | sudo tee ./spark-defaults.conf
