@@ -23,6 +23,6 @@ cat <<EOF | sudo tee -a /etc/hosts
 $MASTER_IP      $MASTER_HOST
 EOF
 
-$SPARK_HOME/sbin/start-master.sh
-$SPARK_HOME/sbin/start-worker.sh spark://$MASTER_IP:7077
+spark/sbin/start-master.sh
+spark/sbin/start-worker.sh spark://$MASTER_IP:7077
 
