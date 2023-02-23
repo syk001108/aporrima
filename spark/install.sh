@@ -4,13 +4,13 @@ sudo apt-get update
 sudo apt install openssh-server openssh-client -y
 sudo apt install net-tools
 
-sudo sed -i "/PasswordAuthentication/ c\PasswordAuthentication yes" /etc/ssh/sshd_config
-sudo sed -i "/PermitRootLogin/ c\PermitRootLogin yes" /etc/ssh/sshd_config
-sudo systemctl restart sshd
+# sudo sed -i "/PasswordAuthentication/ c\PasswordAuthentication yes" /etc/ssh/sshd_config
+# sudo sed -i "/PermitRootLogin/ c\PermitRootLogin yes" /etc/ssh/sshd_config
+# sudo systemctl restart sshd
 
-cat <<EOF > ~/.bash_profile
-source ~/.bashrc
-EOF
+# cat <<EOF > ~/.bash_profile
+# source ~/.bashrc
+# EOF
 
 echo "DISCLAIMER: This is an automated script for installing Spark but you should feel responsible for what you're doing!"
 echo "This script will install Spark to your home directory, modify your PATH, and add environment variables to your SHELL config file"
@@ -29,8 +29,8 @@ then
     exit 1
 fi
 ./aporrima/spark/add-spark-user.sh
-echo -n "spark" | su - spark -c "git clone https://github.com/boanlab/aporrima.git"
-
+# echo -n "spark" | su - spark -c "git clone https://github.com/boanlab/aporrima.git"
+echo -n "spark" | su - spark -c "git clone https://github.com/Apdul0329/aporrima.git"
 sleep 1
 
 echo "This script will install a JAVA&PYTHON3 for Spark"
@@ -61,15 +61,14 @@ read -r -p "(1 : Local Standalone / 2 : Spark on YARN / 3 : Standalone Cluster) 
 case $response in
     1)
         echo "Set up local standalone mode"
-        ./aporrima/spark/setting-standalone.sh
+        echo -n "spark" | su - spark -c "./aporrima/spark/setting-standalone.sh"
         ;;
     2)
         echo "Set up Spark on YARN mode"
-        ./aporrima/spark/setting-spark-on-yarn.sh
+        echo -n "spark" | su - spark -c "./aporrima/spark/setting-spark-on-yarn.sh"
         ;;
     3)
         echo "Set up standalone cluster mode"
-        ./aporrima/spark/setting-standalone-cluster.sh
-        $SPARK_HOME/sbin/start-all.sh
+        echo -n "spark" | su - spark -c "./aporrima/spark/setting-standalone-cluster.sh"
+        echo -n "spark" | su - spark -c "$SPARK_HOME/sbin/start-all.sh"
 esac
-

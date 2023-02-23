@@ -9,7 +9,6 @@ if [[ -d $SPARK_HOME/${SPARK_TGZ%".tgz"} ]]; then
 else
     wget https://dlcdn.apache.org/spark/$SPARK_VERSION/$SPARK_TGZ
     tar zxvf $SPARK_TGZ
-    sudo mv ${SPARK_TGZ%".tgz"} $SPARK_HOME
     sudo rm ./$SPARK_TGZ
     sudo ln -s $SPARK_HOME/${SPARK_TGZ%".tgz"}/ $SPARK_HOME/spark
 
