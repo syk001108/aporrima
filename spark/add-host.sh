@@ -15,6 +15,7 @@ do
         cat <<EOF | sudo tee /etc/hosts
 $MASTER_IP      $MASTER_HOST
 EOF
+        sudo hostnamectl set-hostname $MASTER_HOST
     else
         read -r -p "Please input IP: " IP
         HOSTNAME="spark-worker$var"
