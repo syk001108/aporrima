@@ -33,5 +33,6 @@ done
 LINE_CNT=$(sed -n '/spark/p' /etc/hosts | wc -l)
 for ((i=1; i<$LINE_CNT; i++))
 do
-	scp -r /home/spark/* spark@$i:/home/spark/
+	scp -r /home/spark/* spark@spark-worker$i:/home/spark/
+	ssh spark@spark-worker$i "sudo hostnamectl set-hostname spark-worker$i"
 done
