@@ -9,7 +9,8 @@ sudo sed -i "/PermitRootLogin/ c\PermitRootLogin yes" /etc/ssh/sshd_config
 sudo systemctl restart sshd
 
 ./aporrima/spark/add-spark-user.sh
-echo -n "spark" | su - spark -c "git clone https://github.com/boanlab/aporrima.git"
+# echo -n "spark" | su - spark -c "git clone https://github.com/boanlab/aporrima.git"
+echo -n "spark" | su - spark -c "git clone https://github.com/Apdul0329/aporrima.git"
 sleep 1
 
 echo "Start install JAVA"
