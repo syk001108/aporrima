@@ -27,6 +27,5 @@ EOF
             echo "Adding $HOSTNAME to your $ETC_HOSTS"
             sudo -- sh -c -e "echo '$HOSTS_LINE' >> /etc/hosts"
         fi
-    # ./aporrima/spark/add-host.sh $HOST $IP
     fi
 done 
