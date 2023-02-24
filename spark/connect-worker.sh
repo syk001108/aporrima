@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mkdir /home/spark/.ssh
-ssh-keygen -t rsa;
+ssh-keygen -t rsa; echo echo -ne '\n'; echo -ne '\n'; echo -ne '\n';
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 
