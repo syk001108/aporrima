@@ -3,7 +3,7 @@
 MASTER_IP=$(/sbin/ifconfig | grep '\<inet\>' | sed -n '1p' | tr -s ' ' | cut -d ' ' -f3 | cut -d ':' -f2)
 MASTER_HOST=spark-master
 
-./aporrima/spark/connect-worker.sh
+echo -n "spark" | su - spark -c "./aporrima/spark/connect-worker.sh"
 
 sudo mkdir /home/spark/logs
 
