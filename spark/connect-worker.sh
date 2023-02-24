@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir ./.ssh
+mkdir /home/spark/.ssh
 ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
