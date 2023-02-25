@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HOSTNAME=$(hostname)
-ssh-keygen -t rsa -C "$HOSTNAME" -f "$HOME/.ssh/id_rsa" -P "" && cat ~/.ssh/id_rsa.pub
+ssh-keygen -t rsa -C "$HOSTNAME" -f ~/.ssh/id_rsa -q -N "" && cat ~/.ssh/id_rsa.pub
 
 #ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
