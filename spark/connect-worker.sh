@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ssh-keygen -t rsa -f ~/.ssh/ -q -N ""
+ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -N ""
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 
