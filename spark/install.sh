@@ -41,6 +41,7 @@ case $response in
         ;;
     3)
         echo "Set up standalone cluster mode"
+        ./aporrima/spark/add-host.sh
         echo -n "spark" | su - spark -c "./aporrima/spark/setting-standalone-cluster.sh"
         echo -n "spark" | su - spark -c "$SPARK_HOME/sbin/start-all.sh"
 esac
