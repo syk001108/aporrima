@@ -4,7 +4,7 @@ MASTER_IP=$(/sbin/ifconfig | grep '\<inet\>' | sed -n '1p' | tr -s ' ' | cut -d 
 MASTER_HOST=spark-master
 
 # ./aporrima/spark/add-host.sh
-./aporrima/spark/connect-worker.sh
+echo -n "spark" | su - spark -c "./aporrima/spark/connect-worker.sh"
 
 sudo mkdir /home/spark/logs
 
