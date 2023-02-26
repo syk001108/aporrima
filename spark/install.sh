@@ -3,6 +3,7 @@
 sudo apt-get update
 sudo apt install openssh-server openssh-client -y
 sudo apt install net-tools -y
+sudo apt install sshpass -y
 
 sudo sed -i "/PasswordAuthentication/ c\PasswordAuthentication yes" /etc/ssh/sshd_config
 sudo sed -i "/PermitRootLogin/ c\PermitRootLogin yes" /etc/ssh/sshd_config
@@ -43,5 +44,5 @@ case $response in
         echo "Set up standalone cluster mode"
         ./aporrima/spark/add-host.sh
         echo -n "spark" | su - spark -c "./aporrima/spark/setting-standalone-cluster.sh"
-        echo -n "spark" | su - spark -c "$SPARK_HOME/sbin/start-all.sh"
+        echo -n "spark" | su - spark -c "./spark/sbin/start-all.sh"
 esac
