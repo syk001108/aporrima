@@ -2,7 +2,7 @@
 
 HOSTNAME=$(hostname)
 
-echo -n "spark" | ssh-keygen -t rsa -C "$HOSTNAME" -f ~/.ssh/id_rsa -q -N "" #&& cat ~/.ssh/id_rsa.pub
+echo -ne "spark" | ssh-keygen -t rsa -C "$HOSTNAME" -f ~/.ssh/id_rsa -q -N "" #&& cat ~/.ssh/id_rsa.pub
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 cat /etc/hosts >> host.txt
