@@ -14,7 +14,7 @@ do
 	if [[ "${i} " == *"$(hostname -I)"* ]] || [ $(($cnt%2)) == 0 ];then
 		continue
 	fi
-	ssh-copy-id -o StrictHostKeyChecking=no -i /home/spark/.ssh/id_rsa.pub spark@$i -v
+	ssh-copy-id -o StrictHostKeyChecking=no -v -i /home/spark/.ssh/id_rsa.pub spark@$i
 	scp -o StrictHostKeyChecking=no host.txt spark@$i:/home/spark/
 	ssh -o StrictHostKeyChecking=no spark@$i "sudo cp host.txt /etc/hosts"
 done
