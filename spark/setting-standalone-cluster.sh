@@ -27,7 +27,7 @@ sed -i '/localhost/d' spark/conf/workers
 for i in $(sed -n '/spark/p' /etc/hosts)
 do
 	if [[ "${i}" == *"worker"* ]];then
-		echo $i >> $SPARK_HOME/conf/workers
+		echo $i >> ./spark/conf/workers
 	fi
 done
 
