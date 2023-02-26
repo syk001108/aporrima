@@ -34,6 +34,6 @@ done
 LINE_CNT=$(sed -n '/spark/p' /etc/hosts | wc -l)
 for ((i=1; i<$LINE_CNT; i++))
 do
-	echo -n "spark" | scp -o StrictHostKeyChecking=no -r /home/spark/* spark@spark-worker$i:/home/spark/
-	echo -n "spark" | ssh -o StrictHostKeyChecking=no spark@spark-worker$i "sudo hostnamectl set-hostname spark-worker$i"
+	echo -e "spark" | scp -o StrictHostKeyChecking=no -r /home/spark/* spark@spark-worker$i:/home/spark/
+	echo -e "spark" | ssh -o StrictHostKeyChecking=no spark@spark-worker$i "sudo hostnamectl set-hostname spark-worker$i"
 done
