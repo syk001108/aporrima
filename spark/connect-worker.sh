@@ -2,7 +2,7 @@
 
 HOSTNAME=$(hostname)
 
-ssh-keygen -t rsa -C "$HOSTNAME" -f ~/.ssh/id_rsa -q -N "" # && cat ~/.ssh/id_rsa.pub
+ssh-keygen -t rsa -C "$HOSTNAME" -f ~/.ssh/id_rsa -q -N "" && cat ~/.ssh/id_rsa.pub
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/id_rsa
