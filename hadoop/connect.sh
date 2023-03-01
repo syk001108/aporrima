@@ -14,4 +14,3 @@ do
 	fi
 	ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub hadoop@$i
 done
-
