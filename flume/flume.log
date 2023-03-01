@@ -1,0 +1,5 @@
+21 Feb 2023 06:04:37,843 ERROR [main] (org.apache.flume.node.UriConfigurationProvider.getFlumeConfiguration:312)  - No configuration could be found
+21 Feb 2023 06:04:37,850 ERROR [main] (org.apache.flume.node.Application.main:506)  - A fatal error occurred while running. Exception follows.
+java.lang.NullPointerException: null
+	at org.apache.flume.node.AbstractConfigurationProvider.getConfiguration(AbstractConfigurationProvider.java:101) ~[flume-ng-node-1.11.0.jar:1.11.0]
+	at org.apache.flume.node.Application.main(Application.java:491) ~[flume-ng-node-1.11.0.jar:1.11.0]

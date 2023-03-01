@@ -2,50 +2,31 @@
 
 sudo apt-get update
 sudo apt install openssh-server openssh-client -y
-sudo apt install net-tools
+sudo apt install net-tools -y
 
 sudo sed -i "/PasswordAuthentication/ c\PasswordAuthentication yes" /etc/ssh/sshd_config
 sudo sed -i "/PermitRootLogin/ c\PermitRootLogin yes" /etc/ssh/sshd_config
 sudo systemctl restart sshd
 
-cat <<EOF > ~/.bash_profile
-source ~/.bashrc
-EOF
-
-echo "DISCLAIMER: This is an automated script for installing Spark but you should feel responsible for what you're doing!"
-echo "This script will install Spark to your home directory, modify your PATH, and add environment variables to your SHELL config file"
-read -r -p "Proceed? [y/N] " response
-if [[ ! $response =~ ^([yY][eE][sS]|[yY])$ ]]
-then
-    echo "Aborting..."
-    exit 1
-fi
-
-echo "This script will create a new Spark user"
-read -r -p "Proceed? [y/N] " response
-if [[ ! $response =~ ^([yY][eE][sS]|[yY])$ ]]
-then
-    echo "Aborting..."
-    exit 1
-fi
 ./aporrima/spark/add-spark-user.sh
-
+echo -n "spark" | su - spark -c "git clone https://github.com/boanlab/aporrima.git"
 sleep 1
-echo "This script will install a JAVA&PYTHON3 for Spark"
-read -r -p "Proceed? [y/N] " response
-if [[ ! $response =~ ^([yY][eE][sS]|[yY])$ ]]
-then
-    echo "Aborting..."
-    exit 1
-fi
 
 echo "Start install JAVA"
-./aporrima/spark/install-java.sh
-
+echo -n "spark" | su - spark -c "./aporrima/spark/install-java.sh"
 sleep 1
 
 echo "Start install Python3"
-./aporrima/spark/install-python.sh
+echo -n "spark" | su - spark -c "./aporrima/spark/install-python.sh"
 
-echo "Set up ubuntu password"
-echo 'ubuntu:ubuntu' | sudo chpasswd
+SPARK_PATH=spark-3.3.2-bin-hadoop3
+echo -n "spark" | su - spark -c 'cat <<EOF | sudo tee -a ~/.bashrc
+export PATH=\$SPARK_HOME/bin:\$PATH
+export PYSPARK=/usr/bin/python3
+export PYSPARK_DRIVER_PYTHON=jupyter
+EOF'
+echo -n "spark" | su - spark -c "cat <<EOF | sudo tee -a ~/.bashrc
+export SPARK_HOME=/home/spark/$SPARK_PATH
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook --ip=0.0.0.0'
+EOF"
+echo -n "spark" | su - spark -c "source ~/.bashrc"

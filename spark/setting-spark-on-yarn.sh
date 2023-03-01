@@ -8,8 +8,8 @@ cd /$SPARK_HOME/conf
 
 su - hadoop -c "hdfs dfs -mkdir -p /user/spark/logs"
 
-cp spark-defaults.conf.template spark-defaults.conf
-cat <<EOF | sudo tee ./spark-defaults.conf
+cp spark/conf/spark-defaults.conf.template spark/conf/spark-defaults.conf
+cat <<EOF | sudo tee spark/conf/spark-defaults.conf
 spark.master                                    yarn
 spark.serializer                                org.apache.spark.serializer.KryoSerializer
 spark.driver.cores                              1
@@ -24,8 +24,8 @@ spark.driver.extraClassPath                     $SPARK_HOME/jars/*.jar
 spark.executor.extraClassPath                   $SPARK_HOME/jars/*.jar
 EOF
 
-cp spark-env.sh.template spark-env.sh
-cat <<EOF | sudo tee ./spark-env.sh
+cp spark/conf/spark-env.sh.template spark/conf/spark-env.sh
+cat <<EOF | sudo tee spark/conf/spark-env.sh
 export HADOOP_CONF_DIR=/home/hadoop/hadoop-3.3.4/etc/hadoop/
 export HADOOP_HOME=/home/hadoop/hadoop-3.3.4/
 export PYSPARK_PYTHON=/usr/bin/python3
