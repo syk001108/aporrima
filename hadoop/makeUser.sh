@@ -10,4 +10,3 @@ sudo useradd -m hadoop
 echo 'hadoop:hadoop' | sudo chpasswd
 sudo chown hadoop:hadoop /home/hadoop
 sudo usermod -s /bin/bash hadoop
-su hadoop
