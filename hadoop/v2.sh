@@ -11,7 +11,7 @@ for i in $@
 do
     num=$(($num+1))
     if [ "$num" == "1" ]; then
-        all+="{$i} "
+        all+="${i} "
         continue
     fi
     all+="${i} ubuntu "
