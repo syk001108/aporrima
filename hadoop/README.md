@@ -80,7 +80,7 @@ Input the Ubuntu password you want `ex. ubuntu`
     🔹Real Example
     
     ```java
-    ./aporrima/hadoop/v1.sh 10.0.20.157 10.0.20.180 ubuntu 10.0.20.181 ubuntu2
+    ./aporrima/hadoop/1.sh 10.0.20.157 10.0.20.180 ubuntu 10.0.20.181 ubuntu2
     ```
     
 2. **DataNode's ubuntu account password is `ubuntu`**
@@ -88,7 +88,7 @@ Input the Ubuntu password you want `ex. ubuntu`
     🔹General Example
     
     ```java
-    ./aporrima/hadoop/1.sh (NameNode's ip address) (DataNode's ip address) (DataNode's ip address)...
+    ./aporrima/hadoop/v2.sh (NameNode's ip address) (DataNode's ip address) (DataNode's ip address)...
     ```
     
     🔹Real Example
