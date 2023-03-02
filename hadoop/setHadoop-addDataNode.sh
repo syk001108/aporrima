@@ -13,5 +13,5 @@ done
 linecnt=$(sed -n '/hd/p' /etc/hosts | wc -l)
 for ((i=1; i<$linecnt; i++))
 do
-	scp -r /home/hadoop/* hadoop@hdw$i:/home/hadoop/
+	scp -r -o StrictHostKeyChecking=no /home/hadoop/* hadoop@hdw$i:/home/hadoop/
 done
