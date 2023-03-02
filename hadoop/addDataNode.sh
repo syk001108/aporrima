@@ -27,4 +27,5 @@ sshpass -p hadoop ssh hadoop@$1 -o StrictHostKeyChecking=no -t "cd; git clone ht
 
 
 # send Hadoop Setting to datanode
-scp -r /home/hadoop/* hadoop@$1:/home/hadoop/
+sshpass -p hadoop ssh hadoop@hdn -o StrictHostKeyChecking=no -t "cd ~; pwd; source ~/.bashrc; ./aporrima/hadoop/setHadoop-addDataNode.sh"
+
