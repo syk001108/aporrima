@@ -12,5 +12,5 @@ do
 	if [[ "${i} " == *"$(hostname -I)"* ]] || [ $(($cnt%2)) == 0 ];then
 		continue
 	fi
-	ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub hadoop@$i
+	sshpass -p hadoop ssh-copy-id -i /home/hadoop/.ssh/id_rsa.pub -o StrictHostKeyChecking=no hadoop@$i
 done
