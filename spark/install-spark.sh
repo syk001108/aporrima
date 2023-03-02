@@ -15,7 +15,7 @@ else
     cat <<EOF | sudo tee -a ~/.bashrc
 export SPARK_HOME=$SPARK_HOME/${SPARK_TGZ%".tgz"}
 export PATH=\$SPARK_HOME/bin:\$PATH
-export PYSPARK=/usr/bin/python3
+export PYSPARK_PYTHON=/usr/bin/python3
 export PYSPARK_DRIVER_PYTHON=jupyter
 export PYSPARK_DRIVER_PYTHON_OPTS='notebook --ip=0.0.0.0'
 EOF

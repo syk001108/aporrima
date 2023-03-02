@@ -20,8 +20,8 @@ spark.history.provider                          org.apache.spark.deploy.history.
 spark.yarn.historyServer.address                $MASTER_IP:18080
 spark.yarn.appMasterEnv.PYSPARK_PYTHON          /usr/bin/python3
 spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON   /usr/bin/python3
-spark.driver.extraClassPath                     $SPARK_HOME/jars/*.jar
-spark.executor.extraClassPath                   $SPARK_HOME/jars/*.jar
+spark.driver.extraClassPath                     /spark/jars/*.jar
+spark.executor.extraClassPath                   /spark/jars/*.jar
 EOF
 
 cp spark/conf/spark-env.sh.template spark/conf/spark-env.sh
@@ -29,6 +29,6 @@ cat <<EOF | sudo tee spark/conf/spark-env.sh
 export HADOOP_CONF_DIR=/home/hadoop/hadoop-3.3.4/etc/hadoop/
 export HADOOP_HOME=/home/hadoop/hadoop-3.3.4/
 export PYSPARK_PYTHON=/usr/bin/python3
-export PYSPARK_DRIVER_PYTHON=/usr/bin/python3
+export PYSPARK_DRIVER_PYTHON=jupyter
 EOF
 
