@@ -10,3 +10,5 @@ ln -s /home/hadoop/hadoop-3.3.4 ~/hadoop;
 # Setting hadoop's environment variables
 cat ./aporrima/hadoop/bashrc.txt >> /home/hadoop/.bashrc
 source ~/.bashrc
+
+mkdir ~/hadoop/logs
