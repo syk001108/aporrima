@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cat ./profile.txt | sudo tee -a /etc/profile
+cat ./aporrima/hadoop/profile.txt | sudo tee -a /etc/profile
 . /etc/profile
