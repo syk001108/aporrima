@@ -44,4 +44,6 @@ done
 
 echo "hadoop" | su - hadoop -c "cd; ./aporrima/hadoop/installHadoop.sh; source ~/.bashrc;"
 
+./aporrima/hadoop/inputProfile.sh
+
 sshpass -p hadoop ssh hadoop@hdn -o StrictHostKeyChecking=no -t "cd ~; pwd; source ~/.bashrc; ./aporrima/hadoop/setHadoop.sh"
