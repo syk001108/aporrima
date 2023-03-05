@@ -12,7 +12,7 @@ echo $NUM
 for ((var=0 ; var < $NUM ; var++));
 do
     if [ $var -eq 0 ]; then
-        cat <<EOF | sudo tee /etc/hosts
+        cat <<EOF | sudo tee -a /etc/hosts
 $MASTER_IP      $MASTER_HOST
 EOF
         sudo hostnamectl set-hostname $MASTER_HOST
