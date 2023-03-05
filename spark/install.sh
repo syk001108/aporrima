@@ -24,21 +24,20 @@ case $response in
         echo -n "hadoop" | su - hadoop -c "./aporrima/spark/install-spark.sh"
         cat <<EOF | sudo tee /etc/profile.d/hadoop.sh
 export HADOOP_HOME=/home/hadoop/hadoop-3.3.4
-export HADOOP_INSTALL=$HADOOP_HOME 
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_INSTALL=\$HADOOP_HOME 
+export HADOOP_MAPRED_HOME=\$HADOOP_HOME
 
-export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=\$HADOOP_HOME
 
-export HADOOP_HDFS_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=\$HADOOP_HOME
 
-export YARN_HOME=$HADOOP_HOME
+export YARN_HOME=\$HADOOP_HOME
 
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native 
-export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+export HADOOP_COMMON_LIB_NATIVE_DIR=\$HADOOP_HOME/lib/native 
+export PATH=\$PATH:\$HADOOP_HOME/sbin:\$HADOOP_HOME/bin
 
-export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+export HADOOP_OPTS="-Djava.library.path=\$HADOOP_HOME/lib/native"
 EOF
-
         source /etc/profile.d/hadoop.sh
         echo -n "hadoop" | su - hadoop -c "./aporrima/spark/setting-spark-on-yarn.sh"
         ;;
