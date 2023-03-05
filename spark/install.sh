@@ -2,7 +2,7 @@
 
 echo "Please select a number that corresponds to the desired installation mode"
 read -r -p "(1 : Local Standalone / 2 : Standalone Cluster / 3 : Spark on YARN ) : " response
-./aporrima/spark/setting-prev.sh
+./aporrima/spark/setting-pre.sh
 
 case $response in
     1)
