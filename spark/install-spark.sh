@@ -23,4 +23,4 @@ EOF
     source ~/.bashrc
 fi
 
-sudo chmod -R 777 /home/hadoop
+#sudo chmod -R 777 /home/spark
