@@ -8,7 +8,6 @@ sudo apt install sshpass -y
 sudo sed -i "/PasswordAuthentication/ c\PasswordAuthentication yes" /etc/ssh/sshd_config
 sudo sed -i "/PermitRootLogin/ c\PermitRootLogin yes" /etc/ssh/sshd_config
 sudo systemctl restart sshd
-sudo passwd ubuntu
 
 ./aporrima/spark/add-spark-user.sh
 echo -n "spark" | su - spark -c "git clone https://github.com/boanlab/aporrima.git"
