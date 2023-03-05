@@ -21,6 +21,7 @@ case $response in
     3)
         echo "Set up Spark on YARN mode"
         echo "Start install Spark"
+        sudo sed -i'' -r -e "/# User privilege specification/a\hadoop  ALL=(ALL) NOPASSWD:ALL" /etc/sudoers
         echo -n "hadoop" | su - hadoop -c "./aporrima/spark/install-spark.sh"
         cat <<EOF | sudo tee /etc/profile.d/hadoop.sh
 export HADOOP_HOME=/home/hadoop/hadoop-3.3.4
