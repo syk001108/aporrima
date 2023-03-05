@@ -9,8 +9,8 @@ if [[ -d $SPARK_PATH/${SPARK_TGZ%".tgz"} ]]; then
 else
     wget https://dlcdn.apache.org/spark/$SPARK_VERSION/$SPARK_TGZ
     tar zxvf $SPARK_TGZ
-    rm ./$SPARK_TGZ
-    ln -s $SPARK_PATH/${SPARK_TGZ%".tgz"}/ $SPARK_PATH/spark
+    sudo rm ./$SPARK_TGZ
+    sudo ln -s $SPARK_PATH/${SPARK_TGZ%".tgz"}/ $SPARK_PATH/spark
 
     cat <<EOF | sudo tee -a ~/.bashrc
 export SPARK_HOME=$SPARK_PATH/${SPARK_TGZ%".tgz"}
