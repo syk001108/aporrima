@@ -7,9 +7,9 @@ if [[ -z $JAVA_PATH ]]; then
     JAVA_PATH=$(update-alternatives --list java)
 fi
 
-cat <<EOF | sudo tee -a ~/.bashrc
+cat <<EOF | sudo tee /etc/profile.d/java.sh
 export JAVA_HOME=${JAVA_PATH%"/bin/java"}
 export PATH=\$JAVA_HOME/bin:\$PATH
 EOF
 
-source ~/.bashrc
+source /etc/profile.d/java.sh
