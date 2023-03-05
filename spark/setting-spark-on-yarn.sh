@@ -3,10 +3,7 @@
 MASTER_IP=$(/sbin/ifconfig | grep '\<inet\>' | sed -n '1p' | tr -s ' ' | cut -d ' ' -f3 | cut -d ':' -f2)
 MASTER_CPU=$(grep 'cpu cores' /proc/cpuinfo | tail -1)
 
-sudo mkdir /home/spark/logs
-cd /$SPARK_HOME/conf
-
-su - hadoop -c "hdfs dfs -mkdir -p /user/spark/logs"
+hdfs dfs -mkdir -p /user/hadoop/logs
 
 cp spark/conf/spark-defaults.conf.template spark/conf/spark-defaults.conf
 cat <<EOF | sudo tee spark/conf/spark-defaults.conf
@@ -15,7 +12,7 @@ spark.serializer                                org.apache.spark.serializer.Kryo
 spark.driver.cores                              1
 spark.executor.cores                            1
 spark.eventLog.enabled                          true
-spark.eventLog.dir                              hdfs:///user/spark/logs
+spark.eventLog.dir                              hdfs:///user/hadoop/logs
 spark.history.provider                          org.apache.spark.deploy.history.FsHistoryprovider
 spark.yarn.historyServer.address                $MASTER_IP:18080
 spark.yarn.appMasterEnv.PYSPARK_PYTHON          /usr/bin/python3
