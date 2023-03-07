@@ -2,19 +2,25 @@
 
 . /etc/os-release
 
+#check os
 if [ "$NAME" != "Ubuntu" ]; then
     echo "This script is for Ubuntu."
     exit
 fi
 
-# update repo
+# update repo JAVA, ssh, net-tools, sshpass 
 sudo apt-get update
-sudo apt install openjdk-8-jdk -y
-sudo apt install openssh-server openssh-client -y
-sudo apt install net-tools
-sudo apt-get install sshpass
+if [ "$(which java)" == "" ]; then
+    sudo apt install openjdk-11-jdk -y
+fi
+if [ "$(which ssh)" == "" ]; then
+    sudo apt install openssh-server openssh-client -y
+fi
+if [ "$(which netstat)" == "" ]; then
+    sudo apt install net-tools
+fi
+if [ "$(which sshpass)" == "" ]; then
+    sudo apt-get install sshpass
+fi
 
 
-sudo sed -i "/PasswordAuthentication/ c\PasswordAuthentication yes" /etc/ssh/sshd_config
-sudo sed -i "/PermitRootLogin/ c\PermitRootLogin yes" /etc/ssh/sshd_config
-sudo systemctl restart sshd
