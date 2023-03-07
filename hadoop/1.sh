@@ -22,11 +22,11 @@ do
         continue
     fi
     sshpass -p $i ssh ubuntu@$address -o StrictHostKeyChecking=no "sudo apt-get install git" 
-    sshpass -p $i ssh ubuntu@$address -o StrictHostKeyChecking=no "git clone https://github.com/psy337337/aporrima.git; ./aporrima/hadoop/step1to3.sh $@"
+    sshpass -p $i ssh ubuntu@$address -o StrictHostKeyChecking=no "git clone https://github.com/boanlab/aporrima.git; ./aporrima/hadoop/step1to3.sh $@"
 done
 
 # sshpass -p hadoop ssh hadoop@hdn -o StrictHostKeyChecking=no -t
-sshpass -p hadoop ssh hadoop@hdn -o StrictHostKeyChecking=no -t "cd; git clone https://github.com/psy337337/aporrima.git; ./aporrima/hadoop/connect.sh"
+sshpass -p hadoop ssh hadoop@hdn -o StrictHostKeyChecking=no -t "cd; git clone https://github.com/boanlab/aporrima.git; ./aporrima/hadoop/connect.sh"
 
 
 
@@ -37,7 +37,7 @@ do
 	if [ "$(($num%2))" == "1" ]; then
 		continue
 	fi
-	sshpass -p hadoop ssh hadoop@$i -o StrictHostKeyChecking=no -t "cd; git clone https://github.com/psy337337/aporrima.git; ./aporrima/hadoop/connect.sh"
+	sshpass -p hadoop ssh hadoop@$i -o StrictHostKeyChecking=no -t "cd; git clone https://github.com/boanlab/aporrima.git; ./aporrima/hadoop/connect.sh"
 done
 
 
